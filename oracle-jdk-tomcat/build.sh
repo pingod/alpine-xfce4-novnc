@@ -23,7 +23,7 @@ clean(){
 		done
 	fi
 
-	echo "Removing image $(FULLNAME)"
+	echo "Removing image ${FULLNAME}"
 
 	if docker images ${FULLNAME} | awk '{ print $2 }' | grep -q -F ${VERSION}; then 
 		docker rmi -f ${FULLNAME}:${VERSION}
@@ -63,9 +63,10 @@ save(){
 	echo "Image ${FULLNAME}:${VERSION} exported to ${OUTPUT_FILE}"
 }
 
-# run(){
-# 	echo "IPAddress =" $$(docker inspect --format '{{.NetworkSettings.IPAddress}}' $$(docker run -d $(FULLNAME):$(VERSION)))
-# }
+run(){
+	echo "Docker IPAddress is:" 
+	docker inspect --format '{{.NetworkSettings.IPAddress}}' `docker run -d ${FULLNAME}:${VERSION}`
+}
 
 usage(){
 	echo "List of target"

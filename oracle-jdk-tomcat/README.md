@@ -35,7 +35,7 @@
 ### Quick start
 
   ```
-  docker run -it --rm registry.cn-hangzhou.aliyuncs.com/sourcegarden/tomcat:oracle-jdk8tomcat8 /opt/tomcat/bin/catalina.sh run
+  docker run -it --rm registry.cn-hangzhou.aliyuncs.com/sourcegarden/tomcat:oracle-jdk7tomcat7 /opt/tomcat/bin/catalina.sh run
   docker cp ./sample.war tomcat-ci:/opt/tomcat/webapps/sample.war
   ```
 
