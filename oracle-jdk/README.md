@@ -7,7 +7,7 @@ Docker Image for Oracle Java SDK (JDK and JRE) based on airdock/base:jessie
 
 ## 说明
 
-1. 目录 src 中有一个 generate.sh 的shell脚本，此脚本用来生成不同版本的jdk/jre的dockerfile文件
+1. 目录 src 中有一个 generate.sh 的shell脚本，此脚本用来生成不同版本的jdk/jre的dockerfile文件(目前脚本还是使用的原作者的，以后有时间再改)
 
 2. Java 的二进制文件路径及相关环境变量为 /srv/java
 
@@ -15,11 +15,13 @@ Docker Image for Oracle Java SDK (JDK and JRE) based on airdock/base:jessie
 
 4. 由于JDK 7去官网下载需要登录Oracle账号，因此我将其上传到我的阿里云服务器上，构建JDK 7的时候会去我的服务器上去拉取包（下载地址需要账号密码，所以如果你打算自己构建，那么需要自己提供JDK的包下载地址）
 
+5. makefile 中镜像仓库的地址为阿里云的镜像仓库地址：registry.cn-hangzhou.aliyuncs.com，所以如果你要使用makefile提供的release功能，那么需要先在阿里云镜像中创建并登录账号，才能开始推送
+
 ## Quick start
 
 使用已经打包好的镜像
 
-	'docker run -t -i  airdock/oracle-jdk:latest java -version'
+	'docker run --rm -t -i  registry.cn-hangzhou.aliyuncs.com/sourcegarden/oracle-jdk:7 java -version'
 
 Please note that a correct docker command should be something like this one (using java user defined):
 

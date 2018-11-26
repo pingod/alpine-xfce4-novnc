@@ -1,6 +1,7 @@
-NAMESPACE = djyesu
+NAMESPACE = sourcegarden
 NAME = oracle-jdk
-FULLNAME = $(NAMESPACE)/$(NAME)
+FULLNAME = registry.cn-hangzhou.aliyuncs.com/$(NAMESPACE)/$(NAME)
+#FULLNAME = $(NAMESPACE)/$(NAME)
 VERSION = 7
 
 .PHONY: all clean build tag_latest release debug run save start usage

@@ -1,7 +1,8 @@
-NAMESPACE = airdock
+NAMESPACE = sourcegarden
 NAME = oracle-jdk
-FULLNAME = $(NAMESPACE)/$(NAME)
-VERSION = jre-8u112
+FULLNAME = registry.cn-hangzhou.aliyuncs.com/$(NAMESPACE)/$(NAME)
+#FULLNAME = $(NAMESPACE)/$(NAME)
+VERSION = 8
 
 .PHONY: all clean build tag_latest release debug run save start usage
 
