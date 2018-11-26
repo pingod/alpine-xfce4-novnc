@@ -8,7 +8,7 @@ COPY java-dynamic-memory-opts /srv/java/
 
 # Install Oracle JDK 7
 RUN cd /tmp && \
-    curl -L -O -H "authorization":"Basic null" -k "https://www.itaojin.me/share/public/soft/jdk-7u80-linux-x64.tar.gz" && \
+    curl -L -O -H "authorization":"Basic cGFud2VpOnBhbndlaUBkYW9jbG91ZA==" -k "https://www.itaojin.me/share/public/soft/jdk-7u80-linux-x64.tar.gz" && \
     tar xf jdk-7u80-linux-x64.tar.gz -C /srv/java && \
     rm -f jdk-7u80-linux-x64.tar.gz && \
     ln -s /srv/java/jdk* /srv/java/jdk && \

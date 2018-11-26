@@ -8,7 +8,7 @@ COPY java-dynamic-memory-opts /srv/java/
 
 # Install Oracle JDK 9
 RUN cd /tmp && \
-    curl -L -O -H "authorization":"Basic null" -k "https://www.itaojin.me/share/public/soft/jdk-9.0.4_linux-x64_bin.tar.gz" && \
+    curl -L -O -H "authorization":"Basic cGFud2VpOnBhbndlaUBkYW9jbG91ZA==" -k "https://www.itaojin.me/share/public/soft/jdk-9.0.4_linux-x64_bin.tar.gz" && \
     tar xf jdk-9.0.4_linux-x64_bin.tar.gz -C /srv/java && \
     rm -f jdk-9.0.4_linux-x64_bin.tar.gz && \
     ln -s /srv/java/jdk* /srv/java/jdk && \

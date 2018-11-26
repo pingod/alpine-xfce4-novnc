@@ -1,8 +1,8 @@
 NAMESPACE = sourcegarden
-NAME = oracle-jdk
+NAME = jdk
 FULLNAME = registry.cn-hangzhou.aliyuncs.com/$(NAMESPACE)/$(NAME)
 #FULLNAME = $(NAMESPACE)/$(NAME)
-VERSION = 8
+VERSION = oracle-jdk-8
 
 .PHONY: all clean build tag_latest release debug run save start usage
 
@@ -23,9 +23,9 @@ tag_latest:
 
 release: build tag_latest
 	docker push $(FULLNAME)
-	@echo "Create a tag v-$(VERSION)"
-	@git tag v-$(VERSION)
-	@git push origin v-$(VERSION)
+	# @echo "Create a tag v-$(VERSION)"
+	# @git tag v-$(VERSION)
+	# @git push origin v-$(VERSION)
 
 debug:
 	@docker run -t -i $(FULLNAME):$(VERSION) /bin/bash
