@@ -42,7 +42,6 @@ listen() {
 apply_configuration_fixes() {
   # disable error log
   sed 's/^log_error/# log_error/' -i /etc/mysql/mysql.conf.d/mysqld.cnf
-
   # Fixing StartUp Porblems with some DNS Situations and Speeds up the stuff
   # http://www.percona.com/blog/2008/05/31/dns-achilles-heel-mysql-installation/
   cat > /etc/mysql/conf.d/mysql-skip-name-resolv.cnf <<EOF

@@ -1,10 +1,19 @@
-[![Circle CI](https://circleci.com/gh/sameersbn/docker-mysql.svg?style=svg)](https://circleci.com/gh/sameersbn/docker-mysql) [![Docker Repository on Quay.io](https://quay.io/repository/sameersbn/mysql/status "Docker Repository on Quay.io")](https://quay.io/repository/sameersbn/mysql)
+**From https://github.com/sameersbn/docker-mysql**
+
+# Changelog
+
+**5.7**
+- mount volume at `/var/run/mysqld` allowing the mysql unix socket can be exposed
+- determine remote access filter based on the docker network (first run only).
+- switched to sameersbn/ubuntu:14.04.20140818 base image
+- optimized image size by removing `/var/lib/apt/lists/*`.
+- accept connections only after we have create the users and databases
 
 # Table of Contents
 
 - [Introduction](#introduction)
 - [Contributing](#contributing)
-- [Changelog](Changelog.md)
+- [Changelog](#changelog.md)
 - [Reporting Issues](#reporting-issues)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
@@ -219,3 +228,4 @@ docker pull sameersbn/mysql:5.7.22-1
 ```bash
 docker run --name mysql -d [OPTIONS] sameersbn/mysql:5.7.22-1
 ```
+
