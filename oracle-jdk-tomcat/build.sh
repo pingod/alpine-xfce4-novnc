@@ -17,7 +17,7 @@ clean(){
 
 	CID=$( docker ps -a | awk '{ print $1 " " $2 }' | grep ${FULLNAME} | awk '{ print $1 }' )
 	if [ ! -z "$CID" ];then
-		echo "Removing container which reference $(FULLNAME)"
+		echo "Removing container which reference ${FULLNAME}"
 		for container in ${CID};do 
 			docker rm -f $container
 		done
@@ -33,6 +33,9 @@ clean(){
 	if docker images ${FULLNAME} | awk '{ print $2 }' | grep -q -F latest; then 
 		docker rmi -f ${FULLNAME}:latest
 	fi
+
+	echo "Removing image ${FULLNAME}'s volume "
+	rm -fr $(pwd)/opt/
 }
 
 build(){
@@ -65,7 +68,9 @@ save(){
 
 run(){
 	echo "Docker IPAddress is:" 
-	docker inspect --format '{{.NetworkSettings.IPAddress}}' `docker run -d ${FULLNAME}:${VERSION}`
+	docker inspect --format '{{.NetworkSettings.IPAddress}}' `docker run -d -p 8080:8080 -p 8009:8009 -v $(pwd)/opt/tomcat/webapps:/opt/tomcat/webapps ${FULLNAME}:${VERSION}`
+	echo "Ports 8080 8009 is out "
+	echo "/opt/tomcat/webapps is out"
 }
 
 usage(){
@@ -80,6 +85,5 @@ usage(){
 	echo "usage:         this help"
 }
 
-#release
 
 $1

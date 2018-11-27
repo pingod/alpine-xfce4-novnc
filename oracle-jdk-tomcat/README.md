@@ -14,20 +14,20 @@
 | Tomcat version | Java version      | tags                                 |
 |:---------------|:------------------|:-------------------------------------|
 | Tomcat 9       | Oracle Java 9 JDK | `oracle-jdk9tomcat9`                 |
-| Tomcat 9       | Oracle Java 8 JDK | `oracle-jdk8tomcat9`                 |
-| Tomcat 9       | Oracle Java 7 JDK | `oracle-jdk7tomcat9`                 |
+| Tomcat 9       | Oracle Java 8 JDK | `null`                 |
+| Tomcat 9       | Oracle Java 7 JDK | `null`                 |
 | Tomcat 9       | Oracle Java 9 JRE | `null`                               |
 | Tomcat 9       | Oracle Java 8 JRE | `null`                               |
 | Tomcat 9       | Oracle Java 7 JRE | `null`                               |
-| Tomcat 8       | Oracle Java 9 JDK | `oracle-jdk9tomcat8`                 |
+| Tomcat 8       | Oracle Java 9 JDK | `null`                 |
 | Tomcat 8       | Oracle Java 8 JDK | `oracle-jdk8tomcat8`                 |
-| Tomcat 8       | Oracle Java 7 JDK | `oracle-jdk7tomcat8`                 |
+| Tomcat 8       | Oracle Java 7 JDK | `null`                 |
 | Tomcat 8       | Oracle Java 9 JRE | `null`                               |
 | Tomcat 8       | Oracle Java 8 JRE | `null`                               |
 | Tomcat 8       | Oracle Java 7 JRE | `null`                               |
-| Tomcat 7       | Oracle Java 9 JDK | `oracle-jdk9tomcat7`                 |
+| Tomcat 7       | Oracle Java 9 JDK | `null`                 |
 | Tomcat 7       | Oracle Java 8 JDK | `oracle-jdk8tomcat7`                 |
-| Tomcat 7       | Oracle Java 7 JDK | `oracle-jdk7tomcat7`                 |
+| Tomcat 7       | Oracle Java 7 JDK | `null`                 |
 | Tomcat 7       | Oracle Java 9 JRE | `null`                               |
 | Tomcat 7       | Oracle Java 8 JRE | `null`                               |
 | Tomcat 7       | Oracle Java 7 JRE | `null`                               |
