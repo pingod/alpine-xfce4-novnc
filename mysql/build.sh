@@ -7,7 +7,6 @@ FULLNAME=registry.cn-hangzhou.aliyuncs.com/${NAMESPACE}/${NAME}
 DOCKERFILE=./Dockerfile
 VERSION=5.7
 
-
 all(){
 	usage
 	build

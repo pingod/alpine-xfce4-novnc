@@ -1,6 +1,5 @@
 FROM ubuntu:bionic-20180526
 
-
 ENV MYSQL_USER=mysql \
     MYSQL_VERSION=5.7 \
     MYSQL_DATA_DIR=/var/lib/mysql \

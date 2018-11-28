@@ -228,4 +228,3 @@ docker pull sameersbn/mysql:5.7.22-1
 ```bash
 docker run --name mysql -d [OPTIONS] sameersbn/mysql:5.7.22-1
 ```
-
