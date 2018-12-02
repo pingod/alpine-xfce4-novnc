@@ -4,16 +4,14 @@
 
 registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
 
-v0.3   桌面完整版.带有完整的桌面(主题和图标)  chrome 游览器  sshd   x2go   vnc  novnc      镜像大小约为 500M
+v0.3(full)   桌面完整版.带有完整的桌面(主题和图标)  chrome 游览器  sshd   x2go   vnc  novnc      镜像大小约为 500M
 
 
 你也可用使用yangxuan8282/alpine-xfce4-novnc:amd64提供的镜像,这个镜像比较小,但是没有sshd 和x2go,镜像大小大概为200M 左右
 
 ### 默认账号
 novnc  `echoinheaven`
-ssh    `heaven`/`echoinheaven`
-
-
+ssh    `heaven`/`echoinheaven`  `root`/`echoiinheaven`
 
 ### RUN
 
@@ -25,7 +23,7 @@ docker run -d -p 6080:6080 registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine
 
 通过novnc  x2go 并且需要在容器中拥有管控宿主机docker的能力:
 ```
-docker run --name demo  -d -p 6083:6080 -p 2223:22 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.X11-unix:/tmp/.X11-unix registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc:v0.3
+docker run --name demo  -d -p 6081:6080 -p 2223:22 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.X11-unix:/tmp/.X11-unix registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc:v0.3
 ```
 
 to run in a local nested X window:
