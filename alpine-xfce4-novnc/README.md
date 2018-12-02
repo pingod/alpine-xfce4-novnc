@@ -7,6 +7,8 @@ registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
 v0.3   桌面完整版.带有完整的桌面(主题和图标)  chrome 游览器  sshd   x2go   vnc  novnc      镜像大小约为 500M
 
 
+你也可用使用yangxuan8282/alpine-xfce4-novnc:amd64提供的镜像,这个镜像比较小,但是没有sshd 和x2go,镜像大小大概为200M 左右
+
 ### 默认账号
 novnc  `echoinheaven`
 ssh    `heaven`/`echoinheaven`
