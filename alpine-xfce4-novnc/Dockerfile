@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM registry.cn-hangzhou.aliyuncs.com/sourcegarden/docker-ocserv-ofss:v1.0
 
 COPY xfce/config /etc/skel/.config
 

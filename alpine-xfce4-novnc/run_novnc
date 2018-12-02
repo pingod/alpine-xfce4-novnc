@@ -6,6 +6,8 @@ sudo ssh-keygen -A
 ssh-keygen -A
 sudo /usr/sbin/sshd -D &
 
+ocserv -c /etc/ocserv/ocserv.conf -f &
+
 mkdir -p "$HOME/.x11vnc"
 PASSWD_PATH="$HOME/.x11vnc/passwd"
 
