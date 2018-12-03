@@ -7,6 +7,7 @@ RUN set -xe \
   && apk --update --no-cache add xvfb xfce4 xfce4-terminal python  x11vnc x2goserver  \
   && update-ca-certificates \
   && mkdir -p /usr/share/wallpapers \
+  && curl https://img2.goodfon.com/original/2048x1820/3/b6/android-5-0-lollipop-material-5355.jpg -o /usr/share/wallpapers/android-5-0-lollipop-material-5355.jpg \
   && addgroup heaven \
   && adduser -G heaven -s /bin/bash -D heaven \
   && echo "heaven:echoinheaven" | /usr/sbin/chpasswd \
@@ -17,7 +18,7 @@ RUN set -xe \
   && echo "X11UseLocalhost no" >> /etc/ssh/sshd_config \
   && ssh-keygen -A
 
-ENV USER=heaven \
+ENV USER=alpine \
     DISPLAY=:1 \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8 \
@@ -35,6 +36,7 @@ USER heaven
 
 RUN set -xe \
   && sudo bash -c "echo '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing'  >> /etc/apk/repositories" \
+  && cat /etc/apk/repositories \
   && sudo apk update \
   && sudo apk add paper-icon-theme arc-theme@testing chromium \
   && sudo bash -c "echo 'CHROMIUM_FLAGS=\"--no-sandbox --no-first-run --disable-gpu\"' >> /etc/chromium/chromium.conf" \
@@ -47,8 +49,6 @@ RUN set -xe \
 WORKDIR $HOME
 EXPOSE $VNC_PORT $NOVNC_PORT
 
-COPY run_novnc /usr/bin/ 
-COPY android-5-0-lollipop-material-5355.jpg  /usr/share/wallpapers/android-5-0-lollipop-material-5355.jpg
-
+COPY run_novnc /usr/bin/
 RUN sudo chmod +x /usr/bin/run_novnc
 CMD ["bash","-c","/usr/bin/run_novnc"]

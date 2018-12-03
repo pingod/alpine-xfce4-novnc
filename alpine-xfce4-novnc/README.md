@@ -1,17 +1,23 @@
 **From https://github.com/yangxuan8282/docker-image/tree/master/alpine-xfce4-novnc**
 
+![](https://github.com/yangxuan8282/docker-image/raw/master/alpine-xfce4-novnc/chrome_2018-09-23_07-55-15.png)
+
 ### TAG
 
 registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
 
-v0.3(full)   桌面完整版.带有完整的桌面(主题和图标)  chrome 游览器  sshd   x2go   vnc  novnc      镜像大小约为 500M
-
-
-你也可用使用yangxuan8282/alpine-xfce4-novnc:amd64提供的镜像,这个镜像比较小,但是没有sshd 和x2go,镜像大小大概为200M 左右
+v0.9   桌面完整版.带有完整的桌面(主题和图标)  chrome 游览器  sshd   x2go   vnc  novnc (没有ocerv)
 
 ### 默认账号
 novnc  `echoinheaven`
 ssh    `heaven`/`echoinheaven`  `root`/`echoiinheaven`
+
+
+### Quick start
+
+```
+docker run --name novnc --privileged  -e "server_addr=bbs.itaojin.me" -e "hostname_in_docker=local-mac"  -e "ip_out_docker=192.168.2.97" --restart=always -d registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc:v0.9
+```
 
 ### RUN
 
@@ -23,34 +29,34 @@ docker run -d -p 6080:6080 registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine
 
 通过novnc  x2go 并且需要在容器中拥有管控宿主机docker的能力:
 ```
-docker run --name demo  -d -p 6081:6080 -p 2223:22 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.X11-unix:/tmp/.X11-unix registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc:v0.3
+docker run --name demo  -d -p 6081:6080 -p 2223:22 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.X11-unix:/tmp/.X11-unix registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
 ```
 
 to run in a local nested X window:
 
 ```
 Xephyr -screen 1024x768 :1 &
-docker run -v /tmp/.X11-unix:/tmp/.X11-unix yangxuan8282/alpine-xfce4-novnc:amd64 startxfce4
+docker run -v /tmp/.X11-unix:/tmp/.X11-unix registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc startxfce4
 ```
 
 to run multiple container:
 
 ```
 Xephyr -screen 1024x768 :2 &
-docker run -v /tmp:/tmp yangxuan8282/alpine-xfce4-novnc:amd64 startxfce4
+docker run -v /tmp:/tmp registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc startxfce4
 ```
 
 it is also possible to nested in VNC:
 
 ```
 sudo Xephyr -screen 800x600 :2 &
-sudo docker run -e DISPLAY=:2 -v /tmp:/tmp yangxuan8282/alpine-xfce4-novnc:amd64 startxfce4
+sudo docker run -e DISPLAY=:2 -v /tmp:/tmp registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc startxfce4
 ```
 
 > need to mount `/tmp/.X11-unix` when start container:
 
 ```
-docker run -d -p 6080:6080 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.X11-unix:/tmp/.X11-unix yangxuan8282/alpine-xfce4-novnc:amd64
+docker run -d -p 6080:6080 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.X11-unix:/tmp/.X11-unix registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
 ```
 
 remote X session with ssh tunnel:
@@ -58,17 +64,7 @@ remote X session with ssh tunnel:
 run container on server:
 
 ```
-docker run -d -p 6080:6080 -p 2222:22 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.X11-unix:/tmp/.X11-unix yangxuan8282/alpine-xfce4-novnc:amd64
-```
-
-run command in VNC:
-
-```
-sudo apk --update --no-cache add openssh &&
-sudo bash -c 'echo "X11Forwarding yes" >> /etc/ssh/sshd_config' &&
-sudo bash -c 'echo "X11UseLocalhost no" >> /etc/ssh/sshd_config' &&
-sudo ssh-keygen -A &&
-sudo /usr/sbin/sshd -D
+docker run -d -p 6080:6080 -p 2222:22 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.X11-unix:/tmp/.X11-unix registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
 ```
 
 then on client:
@@ -83,9 +79,3 @@ to use mmal on raspberry pi:
 ```
 --device /dev/vchiq
 ```
-
-### TRY
-
-[![Try in PWD](https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/yangxuan8282/docker-image/master/alpine-xfce4-novnc/stack.yml)
-
-![](https://github.com/yangxuan8282/docker-image/raw/master/alpine-xfce4-novnc/chrome_2018-09-23_07-55-15.png)
