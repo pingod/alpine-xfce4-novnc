@@ -4,7 +4,7 @@ COPY xfce/config /etc/skel/.config
 
 RUN set -xe \
 	&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
-  && apk --update --no-cache add xvfb xfce4 xfce4-terminal python bash sudo htop procps curl x11vnc x2goserver openssh wget ca-certificates\
+  && apk --update --no-cache add xvfb xfce4 xfce4-terminal python  x11vnc x2goserver  \
   && update-ca-certificates \
   && mkdir -p /usr/share/wallpapers \
   && curl https://img2.goodfon.com/original/2048x1820/3/b6/android-5-0-lollipop-material-5355.jpg -o /usr/share/wallpapers/android-5-0-lollipop-material-5355.jpg \
