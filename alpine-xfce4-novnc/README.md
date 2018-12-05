@@ -6,7 +6,7 @@
 
 registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
 
-v0.9   桌面完整版.带有完整的桌面(主题和图标)  chrome 游览器  sshd   x2go   vnc  novnc (没有ocerv)
+v1.0_fss   桌面完整版.带有完整的桌面(主题和图标)  chrome 游览器  x2go   vnc  novnc (没有ocerv)  frp  squid sshd
 
 ### 默认账号
 novnc  `echoinheaven`
