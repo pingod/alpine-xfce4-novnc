@@ -1,5 +1,7 @@
 **From https://github.com/yangxuan8282/docker-image/tree/master/alpine-xfce4-novnc**
 
+![](https://github.com/yangxuan8282/docker-image/raw/master/alpine-xfce4-novnc/chrome_2018-09-23_07-55-15.png)
+
 ### TAG
 
 registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
@@ -80,9 +82,3 @@ to use mmal on raspberry pi:
 ```
 --device /dev/vchiq
 ```
-
-### TRY
-
-[![Try in PWD](https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/yangxuan8282/docker-image/master/alpine-xfce4-novnc/stack.yml)
-
-![](https://github.com/yangxuan8282/docker-image/raw/master/alpine-xfce4-novnc/chrome_2018-09-23_07-55-15.png)
