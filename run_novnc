@@ -18,17 +18,15 @@ sudo sed -i.bak '/access.log/d' /start_soft.sh
 #frpc配置文件中的ocserv段虽然用不上,但是先保留这
 #frpc配置文件中的novnc段可用不用配,直接用squid做代理来访问也可以,这里先加上
 # sudo chown heaven:heaven /etc/frp/frpc_full.ini
-# cat > /etc/frp/frpc_full.ini << EOF
-
-# [range:novnc ${hostname_in_docker}]
-# type = tcp
-# local_ip = 127.0.0.1
-# local_port = 6080
-# remote_port = 0
-# use_encryption = false
-# use_compression = false
-
-# EOF
+cat >> /etc/frp/frpc_full.ini << EOF
+[range:novnc ${hostname_in_docker}]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 6080
+remote_port = 0
+use_encryption = false
+use_compression = false
+EOF
 # sudo chown root:root /etc/frp/frpc_full.ini
 bash -x /start_soft.sh
 ###################结束基础镜像脚本修改##########################
