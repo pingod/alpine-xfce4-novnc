@@ -16,7 +16,8 @@ ssh    `heaven`/`echoinheaven`  `root`/`echoiinheaven`
 ### Quick start
 
 ```
-docker run --name novnc --privileged  -e "server_addr=bbs.itaojin.me" -e "hostname_in_docker=local-mac"  -e "ip_out_docker=192.168.2.97" --restart=always -d registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
+docker run --restart=always --name novnc --privileged  -v  /var/run/docker.sock:/var/run/docker.sock -e "server_addr=bbs.itaojin.me" -e "hostname_in_docker=local-mac"  -e "ip_out_docker=10.2.11.189" --restart=always -d registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
+
 ```
 
 ### RUN
