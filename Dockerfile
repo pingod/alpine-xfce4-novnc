@@ -27,6 +27,7 @@ ENV USER=heaven \
     VNC_PASSWD=echoinheaven \
     VNC_PORT=5900 \
     VNC_RESOLUTION=1024x768 \
+#   VNC_RESOLUTION=1400x1300 \
     VNC_COL_DEPTH=24  \
     NOVNC_PORT=6080 \
     NOVNC_HOME=/home/heaven/noVNC 
