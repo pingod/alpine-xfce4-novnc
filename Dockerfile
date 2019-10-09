@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.9
 
 COPY xfce/config /etc/skel/.config
 
@@ -41,8 +41,8 @@ RUN set -xe \
   && sudo apk add paper-icon-theme arc-theme@testing chromium \
   && sudo bash -c "echo 'CHROMIUM_FLAGS=\"--no-sandbox --no-first-run --disable-gpu\"' >> /etc/chromium/chromium.conf" \
   && mkdir -p $NOVNC_HOME/utils/websockify \
-  && wget -qO- https://github.com/novnc/noVNC/archive/v1.0.0.tar.gz | tar xz --strip 1 -C $NOVNC_HOME \
-  && wget -qO- https://github.com/novnc/websockify/archive/v0.8.0.tar.gz | tar xzf - --strip 1 -C $NOVNC_HOME/utils/websockify \
+  && wget -qO- https://github.com/novnc/noVNC/archive/v1.1.0.tar.gz | tar xz --strip 1 -C $NOVNC_HOME \
+  && wget -qO- https://github.com/novnc/websockify/archive/v0.9.0.tar.gz | tar xzf - --strip 1 -C $NOVNC_HOME/utils/websockify \
   && chmod +x -v $NOVNC_HOME/utils/*.sh \
   && ln -s $NOVNC_HOME/vnc.html $NOVNC_HOME/index.html
 
