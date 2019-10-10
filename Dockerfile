@@ -3,7 +3,7 @@ FROM alpine:3.9
 COPY xfce/config /etc/skel/.config
 
 RUN set -xe \
-	&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
+  && sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
   && apk --update --no-cache add xvfb xfce4 xfce4-terminal python bash sudo htop procps curl x11vnc x2goserver openssh wget ca-certificates\
   && update-ca-certificates \
   && mkdir -p /usr/share/wallpapers \
@@ -14,6 +14,9 @@ RUN set -xe \
   && echo "root:echoinheaven" | /usr/sbin/chpasswd \
   && echo "heaven ALL=NOPASSWD: ALL" >> /etc/sudoers \
   && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
+  && sed -i 's/X11Forwarding.*//g' /etc/ssh/sshd_config \
+  && sed -i 's/AllowTcpForwarding\ no/AllowTcpForwarding\ yes/g' /etc/ssh/sshd_config \
+  && sed -i 's/#X11UseLocalhost.*//g' /etc/ssh/sshd_config \
   && echo "X11Forwarding yes" >> /etc/ssh/sshd_config \
   && echo "X11UseLocalhost no" >> /etc/ssh/sshd_config \
   && ssh-keygen -A
@@ -30,7 +33,7 @@ ENV USER=alpine \
     VNC_RESOLUTION=1024x768 \
     VNC_COL_DEPTH=24  \
     NOVNC_PORT=6080 \
-    NOVNC_HOME=/home/heaven/noVNC 
+    NOVNC_HOME=/home/heaven/noVNC
 
 USER heaven
 
