@@ -16,6 +16,11 @@ ssh    `heaven`/`echoinheaven`  `root`/`echoinheaven`
 ### RUN
 
 通过novnc来访问容内的桌面:
+设置VNC密码
+-e VNC_PASSWD=alpinelinux
+改变显示分辨率：
+-e VNC_RESOLUTION=1920x1080 
+
 
 ```
 docker run -d -p 6080:6080 registry.cn-hangzhou.aliyuncs.com/sourcegarden/alpine-xfce4-novnc
